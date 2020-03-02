@@ -1,2 +1,2 @@
 # SweepStakesStory
-Sweet about a SweetStakes
+Sweet about a Stakes
