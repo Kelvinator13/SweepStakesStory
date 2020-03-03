@@ -10,49 +10,43 @@ namespace SweepStakesPro
     {
         
         //member variable
-        public class Sweepstakes
+        public class SweepStakers
         {
             private Dictionary<int, Contestant> contestants = new Dictionary<int, Contestant>();
+            public List<string> contestantsNames = new List<string>();
             Random numberWinner = new Random();
-            private registeredId;
+            private int registeredId;
             private string name;
             public string Name;
-            public Sweepstakes(string name)
+            public SweepStakers(string name)
             {
                 this.name = name;
             }
 
             public void RegisterContestant(Contestant contestant)
             {
-                Contestant.registrationNumber = registeredId;
+                contestant.RegistrationNumber = registeredId;
                 contestants.Add(registeredId, contestant);
                 registeredId++;
             }
         }
-       
-
-
+      
 
         //Constructor
-        public Sweepstakes()
-        {
-
-        }
-
-      
+       
 
         public Contestant PickWinner()
         {
             Contestant winner;
             winner = contestants[numberWinner.Next(0, Contestant.Keys.Count)];
-            name = winner.FirstName + " " + winner.LastName;
+            name = winner.firstName + " " + winner.LastName;
             winnerKey = winner.registrationNumber;
             return winner;
 
         }
         public void PrintContestantInfo(Contestant contestant)
         {
-            Console.WriteLine("Contestant name: " + contestant.FirstName + " " + contestant.LastName + ", ");
+            Console.WriteLine("Contestant name: " + contestant.firstName + " " + contestant.LastName + ", ");
             Console.WriteLine("email: " + contestant.EmailAddress + ", ");
             Console.WriteLine("registration number: " + contestant.registrationNumber);
             Console.WriteLine();

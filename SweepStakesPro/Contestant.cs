@@ -6,15 +6,29 @@ using System.Threading.Tasks;
 
 namespace SweepStakesPro
 {
-    class Contestant()
+    public class Contestant : IContestant
     {
-        public string FirstName;
-        public string LastName;
-        public string EmailAddress;
-         public int RegistratioNumbers;
-    {
+        string firstName;
+        string lastName;
+        string emailAddress;
+        public int RegistrationNumber;
+        public string Name { get { return Name; } set { Name = firstName; } }
+        int name { get; set; }
 
-    }
+        public interface IContestant
+        {
+            int name { get; set; }
+        }
+
+        public string FirstName { get { return firstName; } set { firstName = value; } }
+        public string LastName { get { return lastName; } set { LastName = value; } }
+        public string EmailAddress { get { return EmailAddress; } set { emailAddress = value; } }
+
+        public void Inform(IContestant contestant)
+        {
+            Console.WriteLine("Input received, {0} ", contestant.name);
+        }
+
 
     }
 }
