@@ -8,8 +8,8 @@ namespace SweepStakesPro
 {
     class MarketingFirm
     {
-        private ISweepstakesManager_manager;
-        public MarketingFirm(IsweepstakesManager manager)
+        public ISweepstakesManager manager;
+        public MarketingFirm(ISweepstakesManager manager)
         {
             this.manager = manager;
         }
@@ -19,16 +19,18 @@ namespace SweepStakesPro
             string more = "yes";
             Sweepstakes sweepstakes = new Sweepstakes(IUserInterface.SweepstakesName());
             sweepstakes.RegisterContestant(IUserInterface.GetUserInfo());
-            Console.WriteLine("Would you like to iput another Contestant? 'Yes' or 'No'");
+            Console.WriteLine("Do you want to enter another person? 'yes' or 'no'");
             more = Console.ReadLine();
+            while (more == "yes")
             {
-                sweepstakes.PickWinner();
-                IUserInterface.AnnounceWinner(sweepstakes);
-                IUserInterface.Inform(Sweepstakes);
-
+                sweepstakes.RegisterContestant(IUserInterface.GetUserInfo());
+                manager.InsertSweepStakes(sweepstakes);
+                Console.WriteLine("Do you want to enter another person? 'yes' or 'no'");
+                more = Console.ReadLine();
             }
-
-
+            sweepstakes.PickWinner();
+            IUserInterface.AnnouceWinner(sweepstakes);
+            IUserInterface.Inform(sweepstakes);
         }
     }
 }

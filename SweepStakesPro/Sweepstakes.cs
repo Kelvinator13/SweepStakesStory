@@ -10,45 +10,43 @@ namespace SweepStakesPro
     {
         
         //member variable
-        public class SweepStakers
-        {
-            private Dictionary<int, Contestant> contestants = new Dictionary<int, Contestant>();
-            public List<string> contestantsNames = new List<string>();
-            Random numberWinner = new Random();
-            private int registeredId;
-            private string name;
-            public string Name;
-            public SweepStakers(string name)
-            {
-                this.name = name;
-            }
-
-            public void RegisterContestant(Contestant contestant)
-            {
-                contestant.RegistrationNumber = registeredId;
-                contestants.Add(registeredId, contestant);
-                registeredId++;
-            }
-        }
-      
+        private Dictionary<int, Contestant> contestants = new Dictionary<int, Contestant>();
+        public List<string> contestantsNames = new List<string>();
+        Random numberWinner = new Random();
+        public string name;
+        public string Name;
+        private int registeredId;
+        public int winnerKey;
 
         //Constructor
-       
+        public Sweepstakes(string name)
+        {
+            this.name = name;
+        }
 
+        //Methods
+
+
+        public void RegisterContestant(Contestant  lcontestant)
+        {
+            contestant.RegisteredNumbers = registeredId;
+            contestants.Add(registeredId, contestants);
+            registeredId++;
+        }
         public Contestant PickWinner()
         {
             Contestant winner;
             winner = contestants[numberWinner.Next(0, Contestant.Keys.Count)];
-            name = winner.firstName + " " + winner.LastName;
-            winnerKey = winner.registrationNumber;
+            name = winner.FirstName + " " + winner.LastName;
+            winnerKey = winner/;
             return winner;
 
         }
         public void PrintContestantInfo(Contestant contestant)
         {
-            Console.WriteLine("Contestant name: " + contestant.firstName + " " + contestant.LastName + ", ");
+            Console.WriteLine("Contestant name: " + contestant.FirstName + " " + contestant.LastName + ", ");
             Console.WriteLine("email: " + contestant.EmailAddress + ", ");
-            Console.WriteLine("registration number: " + contestant.registrationNumber);
+            Console.WriteLine("registration number: " + contestant.RegisteredNumbers); 
             Console.WriteLine();
         }
 

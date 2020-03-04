@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SweepStakesPro
 {
-    public class SweepstakestackManager : ISweepstakesManager
+    public class SweepstakesStackManager : ISweepstakesManager
     {
         Stack<Sweepstakes> Sweepstakes = new Stack<Sweepstakes>();
         public override void InsertSweepStakes(Sweepstakes sweepstakes)

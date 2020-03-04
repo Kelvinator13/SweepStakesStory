@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace SweepStakesPro
 {
-    class UserInterface
+    public interface IContestant
     {
+        string Name { get; set; }
+
+        void Inform(IContestant contestant);
     }
 }
