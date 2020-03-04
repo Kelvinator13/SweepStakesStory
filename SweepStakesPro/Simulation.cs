@@ -18,7 +18,7 @@ namespace SweepStakesPro
             ISweepstakesManager sweepstakesManager;
             sweepstakesManager = IUserInterface.PickManager();
             MarketingFirm marketingFirm = new MarketingFirm(sweepstakesManager);
-            marketingFirm.CreateSweepstakes();
+            marketingFirm.CreateSweepStakes();
         }
 
     }
